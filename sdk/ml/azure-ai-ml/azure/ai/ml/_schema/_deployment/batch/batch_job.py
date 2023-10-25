@@ -59,6 +59,7 @@ class BatchJobSchema(PathAwareSchema):
     output_dataset = NestedField(OutputDataSchema)
     output_file_name = fields.Str()
     retry_settings = NestedField(BatchRetrySettingsSchema)
+    tags = fields.Dict(data_key="tags")
 
     @post_load
     def make(self, data: Any, **kwargs: Any) -> Any:  # pylint: disable=too-many-branches

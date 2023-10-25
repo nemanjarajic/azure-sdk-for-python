@@ -289,6 +289,7 @@ class BatchEndpointOperations(_ScopeDependentOperations):
         """
         outputs = kwargs.get("outputs", None)
         job_name = kwargs.get("job_name", None)
+        tags = kwargs.get("tags", None)
         params_override = kwargs.get("params_override", None) or []
         input = kwargs.get("input", None)  # pylint: disable=redefined-builtin
         # Until this bug is resolved https://msdata.visualstudio.com/Vienna/_workitems/edit/1446538
@@ -331,6 +332,8 @@ class BatchEndpointOperations(_ScopeDependentOperations):
             params_override.append({EndpointYamlFields.BATCH_JOB_OUTPUT_DATA: outputs})
         if job_name:
             params_override.append({EndpointYamlFields.BATCH_JOB_NAME: job_name})
+        if tags:
+            params_override.append({EndpointYamlFields.BATCH_JOB_TAGS: tags})
 
         # Batch job doesn't have a python class, loading a rest object using params override
         context = {
