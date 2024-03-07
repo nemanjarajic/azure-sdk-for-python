@@ -162,9 +162,12 @@ class CategoricalDriftMetrics(RestTranslatableMixin):
             jensen_shannon_distance=0.1,
         )
 
+<<<<<<< HEAD
     def get_name_and_threshold(self) -> Tuple:
         return self._find_name_and_threshold()
 
+=======
+>>>>>>> 62e49b4537 (MoMo api review changes (#34670))
 
 class DataDriftMetricThreshold(MetricThreshold):
     """Data drift metric threshold
